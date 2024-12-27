@@ -1,0 +1,65 @@
+<div class="landing-page">
+  <!-- Logo Section -->
+  <header class="logo-section">
+    <img src="assets/images/logo.png" alt="Logo" class="logo">
+  </header>
+
+  <!-- Carousel Section -->
+  <div class="carousel-container">
+    <div class="carousel-slide">
+      <img src="assets/images/meeting.jpg" alt="carousel image" class="carousel-image">
+      <div class="carousel-text">
+        <h1>Improve your skills on your own</h1>
+        <h1>To prepare for a better future</h1>
+        <button class="carousel-button">REGISTER NOW</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="course-list">
+    <div class="header">
+      <h1 class="title">Discover Our Courses</h1>
+      <button class="view-button">View More</button>
+    </div>
+
+    <div *ngIf="courses.length === 0">
+      <p>No courses available.</p>
+    </div>
+
+    <div *ngIf="courses.length > 0">
+      <div class="course-container">
+        <div *ngFor="let course of courses" class="course-item">
+          <img [src]="'http://localhost:8089/test/api/courses/images/' + course.imageUrl" alt="Course Image"
+            class="image">
+          <h3>{{ course.title }}</h3>
+          <p class="course-p">{{course.price}} DT/Month</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Us Section -->
+  <div class="contact-us">
+    <div class="contact-container">
+      <h2>Contact Us</h2>
+      <form action="#" method="post">
+        <label class="form-label" for="name">NAME</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Jiara Martins" required>
+
+        <label class="form-label" for="email">EMAIL</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="hello@reallygreatsite.com"
+          required>
+
+        <label class="form-label" for="message">MESSAGE</label>
+        <input id="message" class="form-control-1" name="message" placeholder="Write your message here" required>
+
+      </form>
+      <button type="submit" class="submit-button">Send the message</button>
+    </div>
+  </div>
+
+  <!-- Admin Dashboard Button -->
+  <div class="admin-button-container">
+    <button routerLink="/admin-dashboard" class="admin-button">Go to Admin Dashboard</button>
+  </div>
+</div>
